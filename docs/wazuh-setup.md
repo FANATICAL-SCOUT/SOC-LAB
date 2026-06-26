@@ -167,6 +167,7 @@ INFO: You can access the web interface https://<your-server-ip>
 > `sudo tar -O -xf wazuh-install-files.tar wazuh-install-files/wazuh-passwords.txt`
 
 <!-- SCREENSHOT: Terminal showing the end of the installer output with the generated admin password -->
+![Wazuh installer output with generated password](../assets/wazuh-installer-password.png)
 
 ---
 
@@ -193,6 +194,7 @@ sudo systemctl is-active wazuh-manager wazuh-indexer wazuh-dashboard
 All three should return `active`.
 
 <!-- SCREENSHOT: Terminal showing all three systemctl status outputs with Active: active (running) -->
+![All three Wazuh services active](../assets/wazuh-services-status.png)
 
 ---
 
@@ -219,16 +221,19 @@ https://<wazuh-server-vm-ip>
 Because Wazuh uses a self-signed TLS certificate, the browser will throw a security warning. This is expected — click through it (in Chrome: **Advanced** → **Proceed to...**).
 
 <!-- SCREENSHOT: Browser showing the self-signed cert warning on the Wazuh dashboard URL -->
+![Browser self-signed cert warning](../assets/wazuh-cert-warning.png)
 
 Log in with:
 - **Username:** `admin`
 - **Password:** the auto-generated password from Step 6
 
 <!-- SCREENSHOT: Wazuh dashboard login page -->
+![Wazuh dashboard login page](../assets/wazuh-dashboard-login.png)
 
 You'll land on the Wazuh overview dashboard. At this point it shows no agents — the agent enrollment steps below are what populates it.
 
 <!-- SCREENSHOT: Wazuh overview dashboard after first login (no agents yet) -->
+![Wazuh overview dashboard](../assets/wazuh-dashboard-home.png)
 
 ---
 
@@ -334,6 +339,7 @@ Back on the Wazuh dashboard (accessed from the Windows 11 host browser):
 3. Click into each agent to confirm events are flowing in
 
 <!-- SCREENSHOT: Wazuh Agents page showing both agents (Ubuntu Linux VM and Windows 10 VM) with Active status — this is the key proof-of-work for the entire setup -->
+![Wazuh agents page both agents active](../assets/wazuh-agents-active.png)
 
 You can also verify from the Wazuh manager CLI on the Ubuntu Server VM:
 
