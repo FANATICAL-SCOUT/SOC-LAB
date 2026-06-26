@@ -1,6 +1,6 @@
 # 🛡️ Home SOC Lab
 
-A personal Security Operations Center (SOC) home lab built entirely on VirtualBox, designed to simulate real-world threat detection, log analysis, and incident response workflows. This project demonstrates hands-on experience with industry-standard open-source security tools across a self-configured multi-VM environment.
+A personal Security Operations Center (SOC) home lab built on VMware Workstation Pro, designed to simulate real-world threat detection, log analysis, and incident response workflows. This project demonstrates hands-on experience with industry-standard open-source security tools across a self-configured multi-VM environment.
 
 ---
 
@@ -40,7 +40,7 @@ Everything is self-hosted, self-configured, and tested against real simulated at
 | **Suricata** | IDS — network traffic inspection and signature-based detection |
 | **Sysmon** | Windows host telemetry — process, network, and file event logging |
 | **VirusTotal API** | Threat intelligence — hash lookups on flagged files |
-| **VirtualBox** | Hypervisor — multi-VM lab environment |
+| **VMware Workstation Pro** | Hypervisor — multi-VM lab environment |
 
 ---
 
@@ -107,7 +107,8 @@ SOC-LAB/
 │       ├── suricata-ids and working.md
 │       └── ssh-bruteforce.md
 └── assets/
-    └── SOC_ARCHITECTURE_DIAGRAM_.png
+    ├── SOC_ARCHITECTURE_DIAGRAM_.png
+    └── wazuh-agents-active.png
 ```
 
 ---

@@ -193,11 +193,11 @@ Sysmon is a Windows system service and kernel driver from Microsoft Sysinternals
 
 ---
 
-### VirusTotal — Threat Intelligence (Planned)
+### VirusTotal — Threat Intelligence
 
 VirusTotal is a cloud-based threat intelligence platform. Its public API takes a file hash (MD5, SHA1, or SHA256) and returns scan results from 70+ antivirus engines.
 
-**Status:** Planned — will be configured after Suricata integration is stable  
+**Status:** Implemented  
 **API tier:** Free public (rate-limited to ~4 requests/minute)
 
 **Integration mechanism:** Wazuh has a built-in VirusTotal module. When a FIM alert fires (file created or modified), Wazuh extracts the SHA256 of the changed file and sends it to the VirusTotal API. The verdict is written back as a new Wazuh alert.
@@ -486,4 +486,4 @@ Keeps implementation context focused. Each feature has a clean start and end sta
 
 ---
 
-*Last updated: V1 — Sysmon integration complete*  
+*Last updated: V1 complete — FIM, Suricata IDS, SSH Brute Force, VirusTotal, Sysmon all implemented*  
