@@ -24,16 +24,12 @@ Wazuh's `syscheck` module runs on the agent and periodically scans monitored dir
 
 The agent detects the change, computes a new checksum, compares it to the stored baseline, and forwards an alert to the Wazuh manager. The manager matches the alert against its ruleset and surfaces it on the dashboard.
 
-```
-File change on Ubuntu Linux VM
-        ↓
-syscheck detects via inotify (realtime)
-        ↓
-Wazuh agent computes new checksum
-        ↓
-Alert forwarded to Wazuh manager
-        ↓
-Rule matched → Alert on dashboard
+```mermaid
+flowchart TD
+    A[File change on Ubuntu Linux VM] --> B[syscheck detects via inotify — realtime]
+    B --> C[Wazuh agent computes new checksum]
+    C --> D[Alert forwarded to Wazuh manager]
+    D --> E[Rule matched → Alert on dashboard]
 ```
 
 ---
