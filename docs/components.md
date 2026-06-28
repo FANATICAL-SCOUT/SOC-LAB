@@ -97,7 +97,7 @@ F --> G[Visible in Dashboard]
 
 **Key config file:** `/var/ossec/etc/ossec.conf` on the Ubuntu Server VM.
 
-This is also where the VirusTotal integration block will live, and where active response scripts are declared.
+This is also where the VirusTotal integration block lives, and where active response scripts are declared.
 
 ---
 
@@ -131,9 +131,9 @@ Agent communication: the agent initiates an encrypted connection to the manager.
 
 Suricata is an open-source network intrusion detection system. It inspects packets on a network interface in real time, matches them against the Emerging Threats community signature set, and writes structured output to `eve.json`.
 
-**Version:** Suricata  
+**Version:** Suricata 7.0.3  
 **VM:** Ubuntu Linux VM  
-**Interface:** the host-only capture interface  
+**Interface:** `ens33` — VMware VMnet Host-Only adapter  
 **Output:** `/var/log/suricata/eve.json`
 
 **Why Suricata runs on the Ubuntu Linux VM, not a separate VM:**
@@ -226,7 +226,7 @@ Kali is a Debian-based penetration testing distribution used as the red-team nod
 
 **VM:** Kali Linux VM
 
-**Planned attack scenarios per V1 feature:**
+**Attack scenarios used in V1:**
 
 | Feature being tested | Attack from Kali |
 |---------------------|-----------------|
@@ -314,7 +314,7 @@ flowchart TD
 
 ---
 
-### VirusTotal Enrichment Flow (Planned)
+### VirusTotal Enrichment Flow
 
 ```mermaid
 flowchart TD
@@ -334,7 +334,7 @@ How each component relates to every other — what it feeds, what feeds it, and 
 
 **VMware Workstation Pro** is the host for every VM. It owns the VMnet virtual switch that all traffic flows through.
 
-**Wazuh Manager** sits at the top of the detection stack. It receives logs from both Wazuh Agents, runs the rule engine, generates alerts, and will query VirusTotal for enrichment. The Dashboard is its UI.
+**Wazuh Manager** sits at the top of the detection stack. It receives logs from both Wazuh Agents, runs the rule engine, generates alerts, and queries VirusTotal for hash-based enrichment on FIM events. The Dashboard is its UI.
 
 **Wazuh Agent (Ubuntu Linux VM)** feeds the manager. It also reads Suricata's `eve.json`, making it the bridge between the network sensor and the SIEM.
 
